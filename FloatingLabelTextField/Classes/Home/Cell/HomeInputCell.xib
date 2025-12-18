@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeInputCell" id="KGk-i7-Jjw" customClass="HomeInputCell" customModule="FloatingLabelTextField" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="640"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="640"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgN-4v-bc0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="640"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgd-hF-JrO" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="15" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="brS-ap-LAE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDG-Fz-Tjc" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="95" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Prb-ar-yQS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-Sn-ccB" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="175" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hjx-zf-mLG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OqN-zC-VWV" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="255" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OAH-Qs-dUn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptV-yP-V3H" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="335" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dr1-dF-k33"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Id" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oWQ-eT-mhg" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="415" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wns-FB-JaO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e14-ub-R6B" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="495" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B3y-Av-d0l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeo-GH-fnS" customClass="FloatingLabelTextField" customModule="FloatingLabelTextField" customModuleProvider="target">
+                                <rect key="frame" x="20" y="575" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="blB-75-6my"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sgd-hF-JrO" firstAttribute="top" secondItem="FgN-4v-bc0" secondAttribute="top" constant="15" id="5OU-xF-ZjF"/>
+                            <constraint firstItem="OqN-zC-VWV" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="FtG-O1-sHL"/>
+                            <constraint firstAttribute="trailing" secondItem="ptV-yP-V3H" secondAttribute="trailing" constant="20" id="Jir-4t-Lb6"/>
+                            <constraint firstItem="e14-ub-R6B" firstAttribute="top" secondItem="oWQ-eT-mhg" secondAttribute="bottom" constant="30" id="Krm-2a-viD"/>
+                            <constraint firstAttribute="trailing" secondItem="bn0-Sn-ccB" secondAttribute="trailing" constant="20" id="M5y-5k-8Fi"/>
+                            <constraint firstAttribute="bottom" secondItem="aeo-GH-fnS" secondAttribute="bottom" constant="15" id="QQO-Pc-owI"/>
+                            <constraint firstAttribute="trailing" secondItem="VDG-Fz-Tjc" secondAttribute="trailing" constant="20" id="Y4j-Wt-rHO"/>
+                            <constraint firstItem="oWQ-eT-mhg" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="ZX8-P0-ZUO"/>
+                            <constraint firstItem="Sgd-hF-JrO" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="aOl-xU-huY"/>
+                            <constraint firstItem="bn0-Sn-ccB" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="cET-eo-edt"/>
+                            <constraint firstItem="ptV-yP-V3H" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="dBO-37-lmA"/>
+                            <constraint firstItem="VDG-Fz-Tjc" firstAttribute="top" secondItem="Sgd-hF-JrO" secondAttribute="bottom" constant="30" id="dvR-hC-a5w"/>
+                            <constraint firstAttribute="trailing" secondItem="oWQ-eT-mhg" secondAttribute="trailing" constant="20" id="fgh-yL-48h"/>
+                            <constraint firstItem="bn0-Sn-ccB" firstAttribute="top" secondItem="VDG-Fz-Tjc" secondAttribute="bottom" constant="30" id="hmY-7n-B4x"/>
+                            <constraint firstAttribute="trailing" secondItem="Sgd-hF-JrO" secondAttribute="trailing" constant="20" id="jc0-dC-lkT"/>
+                            <constraint firstItem="aeo-GH-fnS" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="jmH-av-huY"/>
+                            <constraint firstItem="VDG-Fz-Tjc" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="ks0-OA-kfP"/>
+                            <constraint firstItem="e14-ub-R6B" firstAttribute="leading" secondItem="FgN-4v-bc0" secondAttribute="leading" constant="20" id="kzp-vU-Std"/>
+                            <constraint firstItem="OqN-zC-VWV" firstAttribute="top" secondItem="bn0-Sn-ccB" secondAttribute="bottom" constant="30" id="nVE-Qt-rGr"/>
+                            <constraint firstAttribute="trailing" secondItem="aeo-GH-fnS" secondAttribute="trailing" constant="20" id="pSt-Dq-hFr"/>
+                            <constraint firstItem="oWQ-eT-mhg" firstAttribute="top" secondItem="ptV-yP-V3H" secondAttribute="bottom" constant="30" id="pZC-sD-K8E"/>
+                            <constraint firstItem="ptV-yP-V3H" firstAttribute="top" secondItem="OqN-zC-VWV" secondAttribute="bottom" constant="30" id="psu-aU-KmQ"/>
+                            <constraint firstAttribute="trailing" secondItem="OqN-zC-VWV" secondAttribute="trailing" constant="20" id="r1P-lQ-VIu"/>
+                            <constraint firstItem="aeo-GH-fnS" firstAttribute="top" secondItem="e14-ub-R6B" secondAttribute="bottom" constant="30" id="rgq-7B-LqA"/>
+                            <constraint firstAttribute="trailing" secondItem="e14-ub-R6B" secondAttribute="trailing" constant="20" id="yG3-jA-TYv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FgN-4v-bc0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8XQ-44-OmK"/>
+                    <constraint firstAttribute="trailing" secondItem="FgN-4v-bc0" secondAttribute="trailing" id="9cf-9H-4Ij"/>
+                    <constraint firstItem="FgN-4v-bc0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ceP-2F-HL1"/>
+                    <constraint firstAttribute="bottom" secondItem="FgN-4v-bc0" secondAttribute="bottom" id="hHB-Lh-mrE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ageTF" destination="bn0-Sn-ccB" id="Dre-Cm-dI0"/>
+                <outlet property="companyNameTF" destination="e14-ub-R6B" id="Ltu-u5-Mho"/>
+                <outlet property="container" destination="FgN-4v-bc0" id="IWg-ad-Kgt"/>
+                <outlet property="emailIdTF" destination="oWQ-eT-mhg" id="WM4-hl-RTP"/>
+                <outlet property="firstNameTF" destination="Sgd-hF-JrO" id="wmH-xo-BcK"/>
+                <outlet property="genderTF" destination="OqN-zC-VWV" id="wYQ-QM-9zy"/>
+                <outlet property="jobDescTF" destination="aeo-GH-fnS" id="8pk-YZ-sGd"/>
+                <outlet property="lastNameTF" destination="VDG-Fz-Tjc" id="StT-wj-1sx"/>
+                <outlet property="mobileNoTF" destination="ptV-yP-V3H" id="aL5-8u-JDk"/>
+            </connections>
+            <point key="canvasLocation" x="131" y="-32"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
