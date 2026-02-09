@@ -10,6 +10,8 @@ import UIKit
 class FloatingLabelTextField: UITextField {
     
     // MARK: - Properties
+    var isDisableCopyPaste = false
+    
     fileprivate let floatingLabel = UILabel()
     fileprivate let borderLayer = CAShapeLayer()
     
@@ -36,6 +38,16 @@ class FloatingLabelTextField: UITextField {
         self.setup()
     }
     
+    // No Interaction TextField
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        
+        if self.isDisableCopyPaste {
+            return false
+        } else {
+            return super.canPerformAction(action, withSender: sender)
+        }
+    }
+    
     fileprivate func setup() {
         
         // TextField
@@ -53,7 +65,10 @@ class FloatingLabelTextField: UITextField {
         self.borderLayer.strokeColor = UIColor.getUnSelectedBorder_Colour().cgColor
         self.borderLayer.fillColor = UIColor.clear.cgColor
         self.borderLayer.cornerRadius = self.cornerRadius
-        self.borderLayer.lineWidth = 1
+        if #available(iOS 13.0, *) {
+            self.borderLayer.cornerCurve = .continuous
+        }
+        self.borderLayer.lineWidth = 0.5
         self.layer.addSublayer(self.borderLayer)
         
         // Floating label
@@ -71,7 +86,10 @@ class FloatingLabelTextField: UITextField {
         self.updateBorderPath()
         
         if !self.isLabelFloated {
-            self.floatingLabel.frame = CGRect(x: self.floatingLabelX, y: self.bounds.height/2, width: self.floatingLabelWidth, height: self.floatingLabelHeight)
+            self.floatingLabel.frame = CGRect(x: self.floatingLabelX,
+                                              y: self.bounds.height/2,
+                                              width: self.floatingLabelWidth,
+                                              height: self.floatingLabelHeight)
         }
     }
 }
@@ -80,7 +98,10 @@ class FloatingLabelTextField: UITextField {
 // MARK: - Call Back
 extension FloatingLabelTextField {
     
-    func updateProperty(leftPadding: CGFloat = 15, rightPadding: CGFloat = 15, placeholderText: String, floatingLabelText: String) {
+    func updateProperty(leftPadding: CGFloat = 15,
+                        rightPadding: CGFloat = 15,
+                        placeholderText: String,
+                        floatingLabelText: String = "") {
         
         self.setLeftPadding(width: leftPadding)
         self.setRightPadding(width: rightPadding)
@@ -88,10 +109,17 @@ extension FloatingLabelTextField {
         self.placeHolderStr = placeholderText
         self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#BCBCBC")])
         
-        self.floatingLabel.text = floatingLabelText
+        let floatingText = floatingLabelText.isEmpty ? placeholderText : floatingLabelText
+        self.floatingLabel.text = floatingText
         
-        self.floatingLabelWidth = getTextWidth(text: floatingLabelText, font: .systemFont(ofSize: 14)).width
-        self.floatingLabel.frame = CGRect(x: self.floatingLabelX, y: self.bounds.height/2, width: self.floatingLabelWidth, height: self.floatingLabelHeight)
+        self.floatingLabelWidth = getTextWidth(text: floatingText, font: .systemFont(ofSize: 14)).width
+        
+        if !self.isLabelFloated {
+            self.floatingLabel.frame = CGRect(x: self.floatingLabelX,
+                                              y: self.bounds.height/2,
+                                              width: self.floatingLabelWidth,
+                                              height: self.floatingLabelHeight)
+        }
     }
     
     
@@ -102,6 +130,7 @@ extension FloatingLabelTextField {
         let path = UIBezierPath()
         
         if self.isLabelFloated {
+            
             let labelWidth = self.floatingLabel.intrinsicContentSize.width + 8
             let labelX = self.floatingLabel.frame.minX - 4
             let gapStart = max(labelX, self.cornerRadius)
@@ -109,7 +138,8 @@ extension FloatingLabelTextField {
             
             // Left arc
             path.move(to: CGPoint(x: rect.minX + self.cornerRadius, y: rect.minY))
-            path.addArc(withCenter: CGPoint(x: rect.minX + self.cornerRadius, y: rect.minY + self.cornerRadius),
+            path.addArc(withCenter: CGPoint(x: rect.minX + self.cornerRadius,
+                                            y: rect.minY + self.cornerRadius),
                         radius: self.cornerRadius,
                         startAngle: CGFloat.pi * 1.5,
                         endAngle: CGFloat.pi,
@@ -117,15 +147,18 @@ extension FloatingLabelTextField {
             
             // Left side
             path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY - self.cornerRadius))
-            path.addArc(withCenter: CGPoint(x: rect.minX + self.cornerRadius, y: rect.maxY - self.cornerRadius),
+            path.addArc(withCenter: CGPoint(x: rect.minX + self.cornerRadius,
+                                            y: rect.maxY - self.cornerRadius),
                         radius: self.cornerRadius,
                         startAngle: CGFloat.pi,
                         endAngle: CGFloat.pi / 2,
                         clockwise: false)
             
             // Bottom side
-            path.addLine(to: CGPoint(x: rect.maxX - self.cornerRadius, y: rect.maxY))
-            path.addArc(withCenter: CGPoint(x: rect.maxX - self.cornerRadius, y: rect.maxY - self.cornerRadius),
+            path.addLine(to: CGPoint(x: rect.maxX - self.cornerRadius,
+                                     y: rect.maxY))
+            path.addArc(withCenter: CGPoint(x: rect.maxX - self.cornerRadius,
+                                            y: rect.maxY - self.cornerRadius),
                         radius: self.cornerRadius,
                         startAngle: CGFloat.pi / 2,
                         endAngle: 0,
@@ -133,7 +166,8 @@ extension FloatingLabelTextField {
             
             // Right side
             path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + self.cornerRadius))
-            path.addArc(withCenter: CGPoint(x: rect.maxX - self.cornerRadius, y: rect.minY + self.cornerRadius),
+            path.addArc(withCenter: CGPoint(x: rect.maxX - self.cornerRadius,
+                                            y: rect.minY + self.cornerRadius),
                         radius: self.cornerRadius,
                         startAngle: 0,
                         endAngle: CGFloat.pi * 1.5,
@@ -196,16 +230,25 @@ extension FloatingLabelTextField {
     }
     
     
+    // MARK: - Update Floating Label Text Color
+    func updateFloatingLabelTextColor() {
+        self.floatingLabel.textColor = .white
+    }
+    
+    
     // MARK: - Float Label Up & Down
     fileprivate func floatLabelUp() {
         
-        guard !isLabelFloated else { return }
+        guard !self.isLabelFloated else { return }
         
         self.isLabelFloated = true
         
         UIView.animate(withDuration: 0.1) {
             self.floatingLabel.alpha = 1
-            self.floatingLabel.frame = CGRect(x: self.floatingLabelX, y: -10, width: self.floatingLabelWidth, height: self.floatingLabelHeight)
+            self.floatingLabel.frame = CGRect(x: self.floatingLabelX,
+                                              y: -10,
+                                              width: self.floatingLabelWidth,
+                                              height: self.floatingLabelHeight)
         } completion: { _ in
             self.updateBorderPath()
         }
@@ -219,10 +262,20 @@ extension FloatingLabelTextField {
         
         UIView.animate(withDuration: 0.1) {
             self.floatingLabel.alpha = 0
-            self.floatingLabel.frame = CGRect(x: self.floatingLabelX, y: self.bounds.height/2, width: self.floatingLabelWidth, height: self.floatingLabelHeight)
+            self.floatingLabel.frame = CGRect(x: self.floatingLabelX,
+                                              y: self.bounds.height/2,
+                                              width: self.floatingLabelWidth,
+                                              height: self.floatingLabelHeight)
         } completion: { _ in
             self.updateBorderPath()
         }
     }
 }
 
+class NoInteractionTextField: UITextField {
+    
+    // No Interaction TextField
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
+    }
+}
